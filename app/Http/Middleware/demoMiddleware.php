@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-
+// to create middleware write "php artisan make:middleware middlewareName" in git or cmd. then have to register new middleware in kernel.php file
 class demoMiddleware
 {
     /**

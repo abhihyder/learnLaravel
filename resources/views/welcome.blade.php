@@ -16,7 +16,7 @@
 				</div>
 				<nav>
 					<ul id="menu">
-						<li><a href="{{url('/')}}">Home</a></li>
+						<li><a href="{{url('/')}}">Home</a></li> <!-- when someone will click to this link it will be redirect to route controller file    -->
 						<li><a href="{{url('about')}}">About</a></li>
 						<li><a href="{{url('services')}}">Services</a></li>
 						<li><a href="{{url('contact')}}">Contact</a></li>

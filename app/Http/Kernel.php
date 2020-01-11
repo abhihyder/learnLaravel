@@ -61,7 +61,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'demo' => \App\Http\Middleware\demoMiddleware::class,
+        'demo' => \App\Http\Middleware\demoMiddleware::class, //here the register procedure of route middleware. "demo" is the name and \App\Http\Middleware\demoMiddleware is path.
     ];
 
     /**
