@@ -1,7 +1,7 @@
 @extends('welcome')
 @section('content')
 			
-<div class="main_wrapper content_bg">
+	<div class="main_wrapper content_bg">
 		<div class="wrapper cntnt_wrp">
 			<div id="content">
 				<section class="sctn">

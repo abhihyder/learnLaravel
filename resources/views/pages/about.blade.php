@@ -1,6 +1,6 @@
 @extends('welcome')
-@section('content')
-			
+
+@section('content')			
 <div class="main_wrapper content_bg">
 		<div class="wrapper cntnt_wrp">
 			<div id="content">
@@ -21,8 +21,6 @@
 						<a class="cntn_r" href="#">Continue Reading</a>
 					</article>
 				</section>
-			
-	
 		</div>
     </div>
     @endsection
