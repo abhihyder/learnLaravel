@@ -11,6 +11,7 @@
                 <p>{{$sql->id}}</p>
                 <p>{{$sql->titles}}</p>
                 <p>{{$sql->details}}</p>
+                <img src="{{url($sql->img)}}" style="width: 300px; height: auto" alt="">
                 <p>{{$sql->created_at}}</p>
 
        

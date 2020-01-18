@@ -15,12 +15,11 @@
                     </ul>
                 </div>
             @endif
-                <form action="{{url('updatePost'.$sql->id)}}" method="post">
+                <form action="{{route('publishCat')}}" method="post">
                 @csrf
-                    <div><input type="text" value="{{$sql->titles}}" name="title"></div>
-                    <div><input type="text" value="{{$sql->details}}" name="details"></div>
-                    <div><input class="btn btn-sm btn-success" type="submit" value="Update" name="publish"><a class="btn btn-sm btn-danger" href="{{url('blog')}}">Cancel</a></div>
-                    
+                    <div><input type="text" placeholder="Name" name="name"></div>
+                    <div><input type="text" placeholder="Slug" name="slug"></div>
+                    <div><input class="btn btn-sm btn-success"  type="submit" value="Create" name="create"></div>
                 </form>
             </div>
         </div>
