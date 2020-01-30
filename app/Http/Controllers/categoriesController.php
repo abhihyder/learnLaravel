@@ -25,4 +25,6 @@ class categoriesController extends Controller
         $sql=DB::table('categories')->insert($data);
         return redirect()->back();
     }
+
+
 }

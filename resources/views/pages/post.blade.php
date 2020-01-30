@@ -16,6 +16,7 @@
                 
                 <p>{{$data->titles}}</p>
                 <p>{{$data->details}}</p>
+                <p> Category: {{$data->name}}</p>
                 <img src="{{url($data->img)}}" style="width: 300px; height: auto" alt="">
                 
                 <a href="{{url('view_single_post_'.$data->id)}}" class="btn btn-sm btn-success">View</a>

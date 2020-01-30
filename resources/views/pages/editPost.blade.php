@@ -17,8 +17,21 @@
             @endif
                 <form action="{{url('updatePost'.$sql->id)}}" method="post">
                 @csrf
+                    
                     <div><input type="text" value="{{$sql->titles}}" name="title"></div>
                     <div><input type="text" value="{{$sql->details}}" name="details"></div>
+                    <div> Old Image: <img src="{{url($sql->img)}}" style="width: 300px; height: auto" alt=""></div>
+                    <div> Insert new image: 
+                        <input type="file" name="img">
+                    </div>
+                    <div> Post Category: 
+                        <select name="cat_id">
+                        @foreach($sql2 as $data)
+                            <option value="{{$data->id}}"<?php if($data->id == $sql->cat_id) echo 'selected' ; ?> >
+                            {{$data->name}}</option>
+                        @endforeach
+                        </select>
+                    </div>
                     <div><input class="btn btn-sm btn-success" type="submit" value="Update" name="publish"><a class="btn btn-sm btn-danger" href="{{url('blog')}}">Cancel</a></div>
                     
                 </form>

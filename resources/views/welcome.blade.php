@@ -37,7 +37,7 @@
 		<div class="wrapper">
 			<footer id="ftr">
 				<h1>Laravel</h1>
-				<p>&copy; 2019 FusionsAid.com - All Rights Reserved</p>
+				<p>&copy; <?php echo date('Y'); ?> FusionsAid.com - All Rights Reserved</p>
 				
 				<div>
 	

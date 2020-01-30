@@ -25,6 +25,13 @@
                     <div><input type="text" placeholder="Title" name="title"></div>
                     <div><input type="text" placeholder="Details" name="details"></div>
                     <div><input type="file" name="img"></div>
+                    <div> Post Category: 
+                        <select name="cat_id">
+                        @foreach($sql as $data)
+                        <option value="{{$data->id}}">{{$data->name}}</option>
+                        @endforeach
+                        </select>
+                    </div>
                     <div><input class="btn btn-sm btn-success"  type="submit" value="Publish" name="publish"></div>
                 </form>
             </div>
