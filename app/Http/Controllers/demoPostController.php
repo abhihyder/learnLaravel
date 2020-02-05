@@ -3,48 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
+
+use DB; //Must be have to include "use DB;"
+
 class postController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $sql=DB::table('posts')
-        ->join('categories', 'posts.cat_id', '=', 'categories.id') //join query
-        ->select('posts.*', 'categories.name')
-        ->get();
-        //return view ('pages.post', compact('sql'));
-        return view('pages.post.post')->with('sql', $sql);
-
-        //return response()->json($sql);
-
-
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+   
+    public function createPost(){ //redirect to post createable page
         $sql=DB::table('categories')->get();
         //return view ('pages.post', compact('sql'));
         return view('pages.post.createPost')->with('sql', $sql);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
+    public function publishPost(Request $request){ // Received data from createPost page and insert to database
+
         $validateData = $request->validate ([ //form validation
             'title'     => 'required|max:255|min:4',
             'details'   => 'required',
@@ -73,14 +45,20 @@ class postController extends Controller
      
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
+    public function readPost(){ // Fetch all data from db table.
+        $sql=DB::table('posts')
+                ->join('categories', 'posts.cat_id', '=', 'categories.id') //join query
+                ->select('posts.*', 'categories.name')
+                ->get();
+        //return view ('pages.post', compact('sql'));
+        return view('pages.post.post')->with('sql', $sql);
+     
+        //return response()->json($sql);
+ 
+        
+    }
+
+    public function singlePost($id){
         $sql=DB::table('posts')
         ->join('categories', 'posts.cat_id', '=', 'categories.id') //join query
         ->select('posts.*', 'categories.name')
@@ -88,32 +66,18 @@ class postController extends Controller
         return view('pages.post.singlePost')->with('sql', $sql);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
+    public function editPost($id){
         $sql=DB::table('posts')->where('id', $id)->first();
         $sql2=DB::table('categories')->get();
         return view('pages.post.editPost', compact('sql','sql2'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
+    public function updatePost(Request $request, $id){
+       
         $validateData = $request->validate ([ //form validation
             'title'     => 'required|max:255|min:4',
             'details'   => 'required',
-            // 'img'       => 'mimes:jpeg,jpg,png,PNG | max:30000',
+            'img'       => 'mimes:jpeg,jpg,png,PNG | max:30000',
             'cat_id'    => 'required',
         ]);
        
@@ -134,17 +98,10 @@ class postController extends Controller
             $sql=DB::table('posts')->where('id', $id)->update($data); // insert to database with "query builder".
             return redirect()->back();
         }
+        
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-      
+    public function deletePost($id){
         $sql = DB::table('posts')->where('id', $id)->delete();
         $notification=array(
             'messege'=> 'Data deleted successfully',

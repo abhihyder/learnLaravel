@@ -4,7 +4,7 @@
 <div class="main_wrapper content_bg">
         <div class="wrapper cntnt_wrp">
             <div id="content">
-                <a href="{{route('createPost')}}">Add Post</a>
+                <a href="{{url('post/create')}}">Add Post</a>
             </div>
         </div>
         <div class="wrapper cntnt_wrp">
@@ -19,9 +19,17 @@
                 <p> Category: {{$data->name}}</p>
                 <img src="{{url($data->img)}}" style="width: 300px; height: auto" alt="">
                 
-                <a href="{{url('view_single_post_'.$data->id)}}" class="btn btn-sm btn-success">View</a>
-                <a href="{{url('edit_post_'.$data->id)}}" class="btn btn-sm btn-info">Edit</a>
-                <a href="{{url('delete_post_'.$data->id)}}" class="btn btn-sm btn-danger">Delete</a>
+                <div style="border-bottom: 1px solid black">
+                    <a href="{{url('post/'.$data->id)}}" class="btn btn-sm btn-success">View</a>
+                    <a href="{{url('post/'.$data->id.'/edit')}}" class="btn btn-sm btn-info">Edit</a>
+
+                    <form action="{{url('post/'.$data->id)}}" method="post">
+                    @csrf 
+                    @method('DELETE')
+                        <button class="btn btn-sm btn-danger" style="submit">Delete</button>
+                    </form>
+                </div>
+
        
             </div>
             @endforeach

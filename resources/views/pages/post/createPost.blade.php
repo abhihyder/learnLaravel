@@ -20,7 +20,7 @@
                     </ul>
                 </div>
             @endif
-                <form enctype="multipart/form-data" action="{{route('publishPost')}}" method="post">
+                <form enctype="multipart/form-data" action="{{url('post')}}" method="post">
                 @csrf
                     <div><input type="text" placeholder="Title" name="title"></div>
                     <div><input type="text" placeholder="Details" name="details"></div>

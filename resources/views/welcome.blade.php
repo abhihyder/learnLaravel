@@ -20,8 +20,8 @@
 					<ul id="menu">
 						<li><a class="links" href="{{url('/')}}">Home</a></li> <!-- when someone will click to this link it will be redirect to route controller file    -->
 						<li><a class="links"  href="{{url('about')}}">About</a></li>
-						<li><a class="links"  href="{{url('blog')}}">Blog</a></li>
-						<li><a class="links"  href="{{url('services')}}">Services</a></li>
+						<li><a class="links"  href="{{url('post')}}">Blog</a></li>
+						<li><a class="links"  href="{{url('student')}}">Students</a></li>
 						<li><a class="links"  href="{{url('contact')}}">Contact</a></li>
 					</ul>
 				</nav>	

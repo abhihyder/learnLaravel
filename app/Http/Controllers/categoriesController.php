@@ -9,7 +9,7 @@ use DB; //Must be have to include "use DB;"
 class categoriesController extends Controller
 {
     public function createCat(){
-        return view('pages.createCategories');
+        return view('pages.category.createCategories');
     }
 
     public function publishCat( Request $request){

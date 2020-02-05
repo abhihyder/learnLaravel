@@ -9,9 +9,9 @@ class pageController extends Controller
     public function about(){
         return view('pages.about'); // return view means we are in view folder. ('pages.about') means path of file which we wanna show. here pages is folder and about is file inside pages folder.
     }
-    public function services(){
-        return view('pages.services');
-    }
+    // public function students(){
+    //     return view('pages.student.student');
+    // }
     public function contact(){
         return view('pages.contact');
     }

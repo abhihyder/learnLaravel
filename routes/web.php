@@ -16,19 +16,27 @@ Route::get('/', function () {
 });
 
 Route::get('/about','pageController@about'); // "/about" means "example.com/about". and "pageController@about" means pageController class and about is method of pageController class. And when someone will click to example.com/about path it will redirect to about method of pageController class.
-Route::get('/services','pageController@services');
-Route::get('/blog','postController@readPost')->name('blog');
+// Route::get('/student','pageController@students');
+//Route::get('/blog','postController@readPost')->name('blog');
 Route::get('/contact','pageController@contact');
 
 //      post crud -----------------------------
-Route::get('/createPost','postController@createPost')->name('createPost');
-Route::post('/publishPost','postController@publishPost')->name('publishPost');
-Route::get('/view_single_post_{id}','postController@singlePost');
-Route::get('/delete_post_{id}','postController@deletePost');
-Route::get('/edit_post_{id}','postController@editPost');
-Route::post('/updatePost{id}','postController@updatePost');
-
+// Route::get('/createPost','postController@createPost')->name('createPost');
+// Route::post('/publishPost','postController@publishPost')->name('publishPost');
+// Route::get('/view_single_post_{id}','postController@singlePost');
+// Route::get('/delete_post_{id}','postController@deletePost');
+// Route::get('/edit_post_{id}','postController@editPost');
+// Route::post('/updatePost{id}','postController@updatePost');
+Route::resource('post', 'postController');
 
 //      Categories CRUD-----------------------------------------
 Route::get('/createCat','categoriesController@createCat')->name('createCat');
 Route::post('/publishCat','categoriesController@publishCat')->name('publishCat');
+
+//      Students CRUD-----------------------------------------
+Route::get('/createStudent','studentController@createStudent')->name('createStudent');
+Route::post('/publishStudent','studentController@publishStudent')->name('publishStudent');
+
+
+//      Student CRUD-------------------
+Route::resource('student', 'studentController');

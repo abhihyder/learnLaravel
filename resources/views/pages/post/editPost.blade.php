@@ -15,9 +15,9 @@
                     </ul>
                 </div>
             @endif
-                <form action="{{url('updatePost'.$sql->id)}}" method="post">
+                <form action="{{url('post/'.$sql->id)}}" method="post">
                 @csrf
-                    
+                @method('PUT')   
                     <div><input type="text" value="{{$sql->titles}}" name="title"></div>
                     <div><input type="text" value="{{$sql->details}}" name="details"></div>
                     <div> Old Image: <img src="{{url($sql->img)}}" style="width: 300px; height: auto" alt=""></div>
@@ -32,7 +32,7 @@
                         @endforeach
                         </select>
                     </div>
-                    <div><input class="btn btn-sm btn-success" type="submit" value="Update" name="publish"><a class="btn btn-sm btn-danger" href="{{url('blog')}}">Cancel</a></div>
+                    <div><input class="btn btn-sm btn-success" type="submit" value="Update" name="publish"><a class="btn btn-sm btn-danger" href="{{url('post')}}">Cancel</a></div>
                     
                 </form>
             </div>
