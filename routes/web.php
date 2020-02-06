@@ -27,7 +27,7 @@ Route::get('/contact','pageController@contact');
 // Route::get('/delete_post_{id}','postController@deletePost');
 // Route::get('/edit_post_{id}','postController@editPost');
 // Route::post('/updatePost{id}','postController@updatePost');
-Route::resource('post', 'postController');
+Route::resource('post', 'PostController');
 
 //      Categories CRUD-----------------------------------------
 Route::get('/createCat','categoriesController@createCat')->name('createCat');

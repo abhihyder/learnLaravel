@@ -16,7 +16,7 @@
                 
                 <p>{{$data->titles}}</p>
                 <p>{{$data->details}}</p>
-                <p> Category: {{$data->name}}</p>
+                <p> Category: {{$data->categories->name}}</p>
                 <img src="{{url($data->img)}}" style="width: 300px; height: auto" alt="">
                 
                 <div style="border-bottom: 1px solid black">
